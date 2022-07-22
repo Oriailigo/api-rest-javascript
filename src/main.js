@@ -1,10 +1,24 @@
+// antes de usar axios se agergo en el HTML su script: <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+//Migracion a Axios: automaticamente te genera el json
+// se puede usar para quedarte con cualquier dato de la api (data, status)
+// hace un codigo legible para los programadores
+// simplifica el uso del fetch y json
+const api_axio=axios.create({
+    baseURL: 'https://api.themoviedb.org/3/',
+    headers:{
+        'Content-Type':'application/json;charset=utf-8'
+    },
+    params:{
+        'api_key':API_KEY,
+    },
+});
 // Llamados a la API
 
 async function getTrendingMoviesPreview() {
     //tomo las peliculas trending del dia.
-    const url_API= 'https://api.themoviedb.org/3/trending/movie/day?api_key='+ API_KEY;
-    const res= await fetch(url_API)
-    const data= await res.json();   
+    //trending/movie/day
+    
+    const {data}= await api_axio('trending/movie/day'); 
     const movies=data.results;
     console.log({data,movies}) 
     movies.forEach(movie => {
@@ -27,9 +41,7 @@ async function getTrendingMoviesPreview() {
 async function getCategories() {
     //tomo las categorias de las peliculas.
     ///genre/movie/list
-    const url_API= 'https://api.themoviedb.org/3/genre/movie/list?api_key='+ API_KEY;
-    const res= await fetch(url_API)
-    const data= await res.json();   
+    const {data}= await api_axio('genre/movie/list'); 
     const categories=data.genres;
     console.log({data,categories}) 
     categories.forEach(categories => {

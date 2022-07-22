@@ -130,8 +130,10 @@
   </section>
 
   <footer>Hecho con amor en Platzi por @Oriana</footer>
-  
-  <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+  <!-- es importante colocar AXIOS antes del llamado de los scripts
+  ya que axios es una manera minimalista de hacer el codigo -->
+  <!-- PROBAR: Al usar Axios si al script lo ponemos al final del head del html, tiene mejor rendimiento que al final del body. Yo lo uso así y logro un mejor resultado.  -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="./src/secret.js"></script>
   <!-- <script src="./src/nodes.js"></script> -->
   <script src="./src/main.js"></script>
