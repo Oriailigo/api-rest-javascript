@@ -59,6 +59,6 @@ async function getCategories() {
         categoriessContainer.appendChild(categorycontainer);
     });
 }
-getTrendingMoviesPreview();
-
-getCategories();
+//llamos en navigator a las 2 funciones:
+// getTrendingMoviesPreview();
+// getCategories();
